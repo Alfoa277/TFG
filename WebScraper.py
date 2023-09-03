@@ -1,5 +1,6 @@
 from nordvpn_switcher import initialize_VPN, rotate_VPN
 
+# Initialize VPN
 initialize_VPN(save=1, area_input=['europe'])
 
 
@@ -28,7 +29,7 @@ def scrapePage(driver, fileName,scrapedSinceLastReset):
     f = open(fileName, "a", encoding="utf-8")
     # Name of the property
     names = driver.find_elements(By.CSS_SELECTOR, "section.items-container article div.item-info-container a.item-link")
-    # Obtengo el "price row" que contiene el precio actual, si tiene garaje o no, y precio anterior si ha sido reducido
+    # I get the "price row" containing the current price, if it has a garage or not, and the previous price if it has been reduced.
     price_row = driver.find_elements(By.CSS_SELECTOR,
                                      "section.items-container article div.item-info-container div.price-row")
     # Details (number of rooms, area...)
@@ -384,14 +385,8 @@ def scrapeAreaTempFake(initialUrl):
     else:
         print(initialUrl)
 
-#scrapeArea(url)
-#scrapeAreaTemp(url,'Gran Canaria', 0)
-#scrapeProvince(url)
-#scrapeIdealista()
-#scrapeProvinceLimited("https://www.idealista.com/venta-viviendas/malaga-provincia/municipios","Málaga",75)
-
 condition = True
-newList = [13,0]
+newList = [0,0]
 
 while condition:
     rotate_VPN()
